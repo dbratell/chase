@@ -5,7 +5,7 @@ import java.awt.event.*;
 
 public class Chase extends Applet implements Runnable, MouseMotionListener
 {
-  private static final int NUMBER_OF_DOTS=1;
+  private static final int NUMBER_OF_DOTS=300;
   private Thread workThread;
   private boolean running;
 
@@ -21,7 +21,7 @@ public class Chase extends Applet implements Runnable, MouseMotionListener
 
    public void init()
   {
-    System.out.println("Inited");
+    //    System.out.println("Inited");
     running = false;
 
     dots = new Vector();
@@ -34,7 +34,7 @@ public class Chase extends Applet implements Runnable, MouseMotionListener
   
   public void start()
   {
-    System.out.println("Started");
+    //    System.out.println("Started");
     if(!running) {
       running = true;
       workThread = new Thread(this);
@@ -44,31 +44,31 @@ public class Chase extends Applet implements Runnable, MouseMotionListener
 
   public void stop()
   {
-    System.out.println("Stopped");
+    //    System.out.println("Stopped");
     running = false;
   }
   
   public void destroy()
   {
-    System.out.println("Destroyed");
+    //    System.out.println("Destroyed");
     
   }
   
   public void run()
   {
     Dot d;
-    System.out.println("Entering thread");
+    //    System.out.println("Entering thread");
     while(running) {
       
       try{
-	Thread.sleep(1000);
+	Thread.sleep(50);
       } catch (InterruptedException ie) {}
-	System.out.println("Pip");
+      //	System.out.println("Pip");
 	repaint();
     }
 
     workThread = null;
-    System.out.println("Leaving thread");
+    //    System.out.println("Leaving thread");
   }
 
 
@@ -101,14 +101,14 @@ public class Chase extends Applet implements Runnable, MouseMotionListener
   public void mouseDragged(MouseEvent e)
   {
     // Potential bug. Mouseposition may be outside the canvas.
-    System.out.println("Tút");
+    //    System.out.println("Tút");
     currentMouseX=e.getX();
     currentMouseY=e.getY();
   }
 
   public void mouseMoved(MouseEvent e)
   {
-    System.out.println("Tut");
+    //    System.out.println("Tut");
     currentMouseX=e.getX();
     currentMouseY=e.getY();
   }
